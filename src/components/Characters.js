@@ -48,9 +48,9 @@ const StyledCharacters = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   ${media.giant`grid-template-columns: repeat(4, 1fr)`}
   ${media.desktop`grid-template-columns: repeat(3, 1fr)`}
-    ${media.tablet`grid-template-columns: repeat(2, 1fr)`}
-    ${media.phone`grid-template-columns: 1fr`}
-    margin-top: 4rem;
+  ${media.tablet`grid-template-columns: repeat(2, 1fr)`}
+  ${media.phone`grid-template-columns: 1fr`}
+  margin-top: 4rem;
   gap: 3rem;
   .no-result {
     grid-column: 1/-1;
