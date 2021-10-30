@@ -4,6 +4,7 @@ import { media } from "../styles";
 import { useApp } from "../utils/context/AppContext";
 import { useCharacters } from "../utils/hooks/query-hooks";
 import CharacterCard from "./CharacterCard";
+import Pagination from "./Pagination";
 import Skeleton from "./Skeleton";
 
 const Characters = () => {
@@ -16,24 +17,29 @@ const Characters = () => {
     return <div>there was an error</div>;
   }
 
+  const noOfPage = data?.info.pages;
+
   return (
-    <StyledCharacters>
-      {characters.isLoading
-        ? Array.from({ length: 12 }).map((_, idx) => (
-            <Skeleton key={`card-${idx}`} />
-          ))
-        : characters.isSuccess &&
-          (data ? (
-            data.results.map((character) => (
-              <CharacterCard key={character.id} character={character} />
+    <>
+      <StyledCharacters>
+        {characters.isLoading
+          ? Array.from({ length: 12 }).map((_, idx) => (
+              <Skeleton key={`card-${idx}`} />
             ))
-          ) : (
-            <div className="no-result">
-              No result found. Please check the name or change the status of
-              your search
-            </div>
-          ))}
-    </StyledCharacters>
+          : characters.isSuccess &&
+            (data ? (
+              data.results.map((character) => (
+                <CharacterCard key={character.id} character={character} />
+              ))
+            ) : (
+              <div className="no-result">
+                No result found. Please check the name or change the status of
+                your search
+              </div>
+            ))}
+      </StyledCharacters>
+      <Pagination numberOfPages={noOfPage} />
+    </>
   );
 };
 

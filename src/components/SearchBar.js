@@ -11,6 +11,7 @@ const SearchBar = ({ id = "search" }) => {
     const query = e.currentTarget.search.value;
     setParameter({
       name: query,
+      page: 1,
     });
   };
 

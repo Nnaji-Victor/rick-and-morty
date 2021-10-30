@@ -31,6 +31,7 @@ const Status = ({ getStatus }) => {
         .join("");
       setParameter({
         status: y,
+        page: 1,
       });
   }, [setParameter, status]);
 

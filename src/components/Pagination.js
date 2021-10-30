@@ -1,8 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import PaginateCore from "react-paginate";
+import { useApp } from "../utils/context/AppContext";
 
-const Pagination = ({ currentPage, onPageChange, numberOfPages }) => {
+const Pagination = ({ currentPage, numberOfPages }) => {
+  const [, setParameter] = useApp();
+  const onPageChange = (page) => {
+    setParameter({
+      page: page.selected,
+    });
+  };
   return (
     <StyledPagination>
       <PaginateCore
@@ -13,7 +20,6 @@ const Pagination = ({ currentPage, onPageChange, numberOfPages }) => {
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         onPageChange={(page) => {
-            console.log(page);
           onPageChange({ ...page, selected: page.selected + 1 });
         }}
         forcePage={currentPage}
@@ -23,6 +29,7 @@ const Pagination = ({ currentPage, onPageChange, numberOfPages }) => {
 };
 
 const StyledPagination = styled.div`
+  margin-top: 2rem;
   & ul {
     display: flex;
     align-items: center;
