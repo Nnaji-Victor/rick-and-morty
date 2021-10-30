@@ -6,6 +6,14 @@ export const useMainCharacters = () => {
         queryKey:'main-characters',
         queryFn: () => CharacterApis.getMainCharacters(),
     })
-
     return mainCharacters;
+}
+
+export const useCharacters = ({ page, name, status }) => {
+    const characters = useQuery({
+        queryKey: ["characters", page, name, status],
+        queryFn: () => CharacterApis.getCharacters({ page, name, status }),
+        keepPreviousData: true,
+    })
+    return characters;
 }

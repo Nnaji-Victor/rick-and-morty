@@ -6,7 +6,7 @@ import MarqueeCard from "./MarqueeCard";
 
 const Hero = () => {
   const { data, isLoading, isError, isSuccess, error } = useMainCharacters();
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return <div>...loading</div>;
@@ -33,6 +33,7 @@ const Hero = () => {
 const StyledHero = styled.div`
   border-bottom: 1px solid var(--theme-background-color);
   padding: 2rem 0;
+  background-color: var(--theme-color-white);;
 `;
 
 export default Hero;

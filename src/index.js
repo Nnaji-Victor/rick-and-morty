@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { AppProvider } from "./utils/context/AppContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Router>
-        <App />
+        <AppProvider>
+          <App />
+        </AppProvider>
       </Router>
     </QueryClientProvider>
   </React.StrictMode>,

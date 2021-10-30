@@ -1,18 +1,17 @@
 import { makeRequest } from "./index";
 import { processError } from "../processError";
 
-async function getCharacters({ page, name, status, season }) {
+async function getCharacters({ page, name, status }) {
   try {
     const response = await makeRequest.get(`/character`, {
       params: {
         page,
         name,
         status,
-        season,
       },
     });
 
-    return response.data.data;
+    return response;
   } catch (error) {
     processError(error);
   }

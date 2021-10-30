@@ -59,6 +59,7 @@ body {
   margin: 0;
   font-family: 'Lora', serif;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--theme-background-color);
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -78,6 +79,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 :root{
 	--theme-background-color: #080808;
+	--theme-color-white: #fff;
+	--hover-color: #11b0c8;
 	--cols: 12;
     --gridSize: calc(100vw / var(--cols));
 }

@@ -44,7 +44,7 @@ const StyledMarqueeCard = styled(Link)`
     z-index: 10;
     transform: translate(-50%, -50%);
     padding: 2rem;
-    color: white;
+    color: var(--theme-color-white);
     font-size: 2rem;
     border-radius: 0.5rem;
     font-weight: 600;

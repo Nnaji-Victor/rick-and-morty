@@ -1,16 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import Hero from '../components/Hero';
+import React from "react";
+import Hero from "../components/Hero";
+import HomeContents from "../components/HomeContents";
 
 const Home = () => {
-    return (
-        <StyledHome>
-            <Hero />
-        </StyledHome>
-    )
-}
-const StyledHome = styled.main`
+  return (
+    <>
+      <Hero />
+      <HomeContents />
+    </>
+  );
+};
 
-`
-
-export default Home
+export default Home;
