@@ -15,13 +15,15 @@ const Navbar = () => {
 };
 
 const StyledNavBar = styled.div`
-  min-height: 7.4rem;
+  height: 7.4rem;
   background-color: var(--theme-background-color);
   padding-left: 3rem;
   padding-right: 3rem;
+  display: flex;
+  align-items: center;
   svg {
     width: 15rem;
-    ${media.tablet`width: 12rem`}
+    ${media.tablet`width: 15rem`}
   }
 `;
 
