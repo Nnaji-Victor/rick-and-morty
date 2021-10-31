@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# RICK AND MORTY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rick and Morty demo application that consumes the [RickandmortyApi](https://rickandmortyapi.com/). 
 
-## Available Scripts
+[View Demo](#)
 
-In the project directory, you can run:
+![main image](main-screen-bg.png)
 
-### `yarn start`
+## Features
+ - Search
+ - Filter
+ - Caching
+ - Responsive
+ - Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Libraries Used
+- react-query: https://react-query.tanstack.com/
+- react-fast-marquee: https://www.react-fast-marquee.com/
+- react-paginate: https://www.npmjs.com/package/react-paginate/
+- axios: https://axios-http.com/.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##  Interesting Pattern
 
-### `yarn test`
+This Rick and Morty demo contains some interesting React pattern like hooks. for e.g
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+export const useCharacters = ({ page, name, status }) => {
+    const characters = useQuery({
+        queryKey: ["characters", page, name, status],
+        queryFn: () => CharacterApis.getCharacters({ page, name, status }),
+        keepPreviousData: true,
+    })
+    return characters;
+}
+```
 
-### `yarn build`
+This hook helps to abstract the call to get all rick and morty characters. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+const useApp = () => {
+  const context = React.useContext(AppContext);
+  if (context === undefined) {
+    throw new Error(`useApp must be used within an AppProvider`);
+  }
+  return context;
+};
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This context hook helps to abstract the call to `React.useContext()` which would require inporting the AppContext all the time.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+const contextReducer = (state, action) => ({...state, ...action});
+const AppProvider = (props) => {
+  const [parameter, setParameter] = React.useReducer(contextReducer, {
+    page: "",
+    status: "",
+    name: "",
+  });
 
-### `yarn eject`
+  const value = [parameter, setParameter];
+  return <AppContext.Provider value={value} {...props} />;
+};
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This useReducer is used to manage the state shared via context to the application. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Application Look
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![profile screen](profile-screen-bg.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+----
+![Main screen sm](main-screen-sm.png)
 
-## Learn More
+----
+![profile screen](profile-screen-sm.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Developement
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
+2.  Install yarn: `npm install -g yarn`
+3. Install the dependencies: `yarn`
+4. The environment variable is intentionally allowed to be public so you do not need to recreate that
+5.  Run `yarn start` to build and watch for code changes

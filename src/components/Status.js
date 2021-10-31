@@ -4,7 +4,7 @@ import { useApp } from "../utils/context/AppContext";
 import Button from "./Button";
 
 const buttonStatus = ["alive", "dead", "unknown"];
-const Status = ({ getStatus }) => {
+const Status = () => {
   const [status, setStatus] = React.useState({
     alive: false,
     dead: false,

@@ -79,7 +79,7 @@ const CharacterProfile = () => {
         </div>
 
         <div className="episodes">
-            <Episodes episodes={data?.episode} loading={character.isLoading}/>
+          <Episodes episodes={data?.episode} loading={character.isLoading} />
         </div>
       </div>
     </StyledCharacterProfile>
@@ -147,8 +147,8 @@ const StyledCharacterProfile = styled.div`
         }
       }
 
-      .text-column{
-          ${media.tablet`display: flex; justify-content: center; align-items: center`}
+      .text-column {
+        ${media.tablet`display: flex; justify-content: center; align-items: center`}
       }
     }
   }
