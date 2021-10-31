@@ -2,7 +2,7 @@
 
 Rick and Morty demo application that consumes the [RickandmortyApi](https://rickandmortyapi.com/). 
 
-[View Demo](#)
+[View Demo](https://nv-rick-and-morty.netlify.app/)
 
 ![main image](main-screen-bg.png)
 

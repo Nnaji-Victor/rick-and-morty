@@ -10,14 +10,14 @@ const EpisodeCard = (url) => {
         {episode.isLoading ? (
           <div>loading</div>
         ) : (
-          episode.isSuccess && episode.data.data.name
+          episode.isSuccess && episode?.data?.data?.name
         )}
       </div>
       <div className="episode">
         {episode.isLoading ? (
           <div>loading</div>
         ) : (
-          episode.isSuccess && episode.data.data.episode
+          episode.isSuccess && episode?.data?.data?.episode
         )}
       </div>
     </StyledEpisode>

@@ -28,7 +28,7 @@ const Characters = () => {
             ))
           : characters.isSuccess &&
             (data ? (
-              data.results.map((character) => (
+              data?.results.map((character) => (
                 <CharacterCard key={character.id} character={character} />
               ))
             ) : (
