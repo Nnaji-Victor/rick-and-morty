@@ -31,7 +31,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/character/:characterId">
+          <Route exact path="/character/:characterId">
             <CharacterProfile />
           </Route>
           <Route exact path="*">

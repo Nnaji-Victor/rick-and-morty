@@ -38,7 +38,7 @@ const Characters = () => {
               </div>
             ))}
       </StyledCharacters>
-      <Pagination numberOfPages={noOfPage} />
+      {data && <Pagination numberOfPages={noOfPage} />}
     </>
   );
 };
