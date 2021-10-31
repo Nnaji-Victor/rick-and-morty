@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Episodes from "../components/Episodes";
 import InfoPill from "../components/InfoPill";
+import LocationInfo from "../components/LocationInfo";
 import PlaceHolder from "../components/PlaceHolder";
 import { media } from "../styles";
 import { useCharacter } from "../utils/hooks/query-hooks";
@@ -74,12 +75,13 @@ const CharacterProfile = () => {
                 text={"Location"}
                 value={data?.location.name}
               />
+              <LocationInfo locationInfo={data?.location}/>
             </div>
           </div>
         </div>
 
         <div className="episodes">
-          <Episodes episodes={data?.episode} loading={character.isLoading} />
+          <Episodes episodes={data?.episode} />
         </div>
       </div>
     </StyledCharacterProfile>

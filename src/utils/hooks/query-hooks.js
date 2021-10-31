@@ -1,6 +1,7 @@
 import { useQuery } from "react-query"
 import CharacterApis from "../api/characters"
 import EpisodeApi from "../api/episodes"
+import LocationApi from "../api/location"
 
 export const useMainCharacters = () => {
     const mainCharacters = useQuery({
@@ -35,4 +36,13 @@ export const useEpisode = (url) => {
     })
 
     return episode;
+}
+
+export const useCharacterLocation = (url) => {
+    const location = useQuery({
+        queryKey: ['location', url],
+        queryFn: () => LocationApi.getLocation(url),
+    })
+
+    return location;
 }

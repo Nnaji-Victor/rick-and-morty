@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { media } from "../styles";
 import EpisodeCard from "./EpisodeCard";
 
-const Episodes = ({ episodes, loading }) => {
+const Episodes = ({ episodes }) => {
   return (
     <StyledEpisodes>
       <h4 className="title">Appeared on - </h4>

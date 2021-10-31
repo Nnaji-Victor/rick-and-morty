@@ -1,5 +1,4 @@
 import { makeRequest } from "./index";
-// import { processError } from "../processError";
 
 async function getCharacters({ page, name, status }) {
   try {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function getEpisode(url) {
+async function getLocation(url) {
   try {
     const response = await axios.get(`${url}`);
     return response;
@@ -9,8 +9,8 @@ async function getEpisode(url) {
   }
 }
 
-const EpisodeApi = {
-  getEpisode,
+const LocationApi = {
+  getLocation,
 };
 
-export default EpisodeApi;
+export default LocationApi;
