@@ -26,9 +26,19 @@ async function getMainCharacters() {
   }
 }
 
+async function getCharacter(id){
+  try {
+    const response = await makeRequest.get(`/character/${id}`);
+    return response;
+  } catch (error) {
+    processError(error);
+  }
+}
+
 const CharacterApis = {
   getCharacters,
   getMainCharacters,
+  getCharacter
 };
 
 export default CharacterApis;

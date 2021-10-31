@@ -21,6 +21,10 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   border-radius: 3px;
 
+  &:hover{
+    background-color: var(--hover-color);
+  }
+
   &.active{
       background-color: var(--theme-color-white);
       color: var(--theme-background-color);

@@ -47,7 +47,7 @@ const StyledPagination = styled.div`
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
-      border: 1px solid rgba(58, 88, 204, 0.39);
+      border: 1px solid var(--hover-color);
       margin-top: 5px;
 
       &.disabled {
